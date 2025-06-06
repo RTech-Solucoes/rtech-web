@@ -24,17 +24,16 @@ const Contact = () => {
     try {
       emailjs.init("BzDu3vzwW0Y_UN5Xl");
 
-      // Send email using EmailJS
       const result = await emailjs.send(
-          'service_ukbo1a6',    // Gmail, Outlook, etc.
-          'template_9hfvvyh',   // Email template you create
-          {
-            name: formData.name,
-            email: formData.email,
-            company: formData.company,
-            phone: formData.phone,
-            message: formData.message,
-          }
+        'service_ukbo1a6',
+        'template_9hfvvyh',
+        {
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          message: formData.message,
+        }
       );
 
       console.log('Email sent successfully:', result);
