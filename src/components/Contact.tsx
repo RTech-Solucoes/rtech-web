@@ -1,10 +1,10 @@
-
-import React, { useState } from 'react';
-import {Mail, Phone, MapPin, CheckCircle, SendHorizontal} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useLanguage } from "@/contexts/LanguageContext.tsx";
+import React, {useState} from 'react';
+import {CheckCircle, Mail, MapPin, Phone, SendHorizontal} from 'lucide-react';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import {Textarea} from '@/components/ui/textarea';
+import {useLanguage} from "@/contexts/LanguageContext.tsx";
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,11 +18,33 @@ const Contact = () => {
 
   const { t } = useLanguage();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-    setFormData({ name: '', email: '', company: '', phone: '', message: '' });
+
+    try {
+      emailjs.init("BzDu3vzwW0Y_UN5Xl");
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+          'service_ukbo1a6',    // Gmail, Outlook, etc.
+          'template_9hfvvyh',   // Email template you create
+          {
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            phone: formData.phone,
+            message: formData.message,
+          }
+      );
+
+      console.log('Email sent successfully:', result);
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 3000);
+      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
+
+    } catch (error) {
+      console.error('Failed to send email:', error);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,7 +93,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="bg-white/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="fade-right" data-aos-delay="200">
+          <div className="flex flex-col bg-white/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="fade-right" data-aos-delay="200">
             <h3 className="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h3>
             
             {isSubmitted ? (
@@ -81,7 +103,7 @@ const Contact = () => {
                 <p className="text-blue-100">Iremos te responder dentro de 24 horas.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 h-full overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
@@ -129,17 +151,17 @@ const Contact = () => {
                       {t('contact.form.phone')}
                     </label>
                     <Input
-                        type="text"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="bg-white/10 border-white/20 text-white placeholder-blue-200"
-                        placeholder={t('contact.form.phonePlaceholder')}
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="bg-white/10 border-white/20 text-white placeholder-blue-200"
+                      placeholder={t('contact.form.phonePlaceholder')}
                     />
                   </div>
                 </div>
                 
-                <div>
+                <div className="h-fit h-max-full">
                   <label className="block text-white text-sm font-medium mb-2">
                     {t('contact.form.message')}
                   </label>
@@ -148,8 +170,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="bg-white/10 border-white/20 text-white placeholder-blue-200  resize-none"
+                    rows={18}
+                    className="bg-white/10 border-white/20 text-white placeholder-blue-200 resize-none"
                     placeholder={t('contact.form.messagePlaceholder')}
                   />
                 </div>
