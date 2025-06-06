@@ -5,6 +5,7 @@ import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
 import {useLanguage} from "@/contexts/LanguageContext.tsx";
 import emailjs from '@emailjs/browser'
+import {EMAIL_KEYS} from "@/constants/email.ts";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,19 +15,21 @@ const Contact = () => {
     phone: '',
     message: ''
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true)
 
     try {
-      emailjs.init("BzDu3vzwW0Y_UN5Xl");
+      emailjs.init(EMAIL_KEYS.API);
 
-      const result = await emailjs.send(
-        'service_ukbo1a6',
-        'template_9hfvvyh',
+      await emailjs.send(
+        EMAIL_KEYS.SERVICE,
+        EMAIL_KEYS.TEMPLATE,
         {
           name: formData.name,
           email: formData.email,
@@ -36,12 +39,13 @@ const Contact = () => {
         }
       );
 
-      console.log('Email sent successfully:', result);
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 3000);
+      setLoading(false)
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
       setFormData({ name: '', email: '', company: '', phone: '', message: '' });
 
     } catch (error) {
+      setLoading(false)
       console.error('Failed to send email:', error);
     }
   };
@@ -95,13 +99,13 @@ const Contact = () => {
           <div className="flex flex-col bg-white/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="fade-right" data-aos-delay="200">
             <h3 className="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h3>
             
-            {isSubmitted ? (
+            {submitted ?
               <div className="text-center py-8">
                 <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-white mb-2">Mensagem enviada!</h4>
-                <p className="text-blue-100">Iremos te responder dentro de 24 horas.</p>
+                <h4 className="text-xl font-semibold text-white mb-2">{t('contact.form.success')}</h4>
+                <p className="text-blue-100">{t('contact.form.successDescription')}</p>
               </div>
-            ) : (
+            :
               <form onSubmit={handleSubmit} className="space-y-6 h-full overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -182,7 +186,7 @@ const Contact = () => {
                   <SendHorizontal className="h-5 w-5" />
                 </Button>
               </form>
-            )}
+            }
           </div>
 
           {/* Contact Information */}
