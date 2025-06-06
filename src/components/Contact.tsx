@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {CheckCircle, Mail, MapPin, Phone, SendHorizontal} from 'lucide-react';
+import {CheckCircle, Mail, MapPin, Phone, SendHorizontal, TriangleAlert} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
@@ -17,6 +17,7 @@ const Contact = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const { t } = useLanguage();
 
@@ -46,6 +47,8 @@ const Contact = () => {
 
     } catch (error) {
       setLoading(false)
+      setError(true);
+      setTimeout(() => setError(false), 3000);
       console.error('Failed to send email:', error);
     }
   };
@@ -97,15 +100,27 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="flex flex-col bg-white/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="fade-right" data-aos-delay="200">
-            <h3 className="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h3>
-            
-            {submitted ?
-              <div className="text-center py-8">
-                <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-white mb-2">{t('contact.form.success')}</h4>
-                <p className="text-blue-100">{t('contact.form.successDescription')}</p>
+            {submitted || error ? (
+              error ?
+                <div className="text-center my-auto px-24">
+                  <TriangleAlert className="h-16 w-16 text-red-500 mx-auto mb-4" />
+                  <h4 className="text-xl font-semibold text-white mb-2">{t('contact.form.error')}</h4>
+                  <p className="text-blue-100">{t('contact.form.errorDescription')}</p>
+                </div> :
+                <div className="text-center my-auto px-24">
+                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <h4 className="text-xl font-semibold text-white mb-2">{t('contact.form.success')}</h4>
+                  <p className="text-blue-100">{t('contact.form.successDescription')}</p>
+                </div>
+            ) : loading ? (
+              <div className="text-center my-auto">
+                <div className="border-8 border-accent border-b-white animate-spin rounded-full w-16 h-16 mx-auto mb-4" />
+                <span className="text-xl font-semibold text-white mb-2">
+                  Enviando ...
+                </span>
               </div>
-            :
+            ) : <>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h3>
               <form onSubmit={handleSubmit} className="space-y-6 h-full overflow-hidden">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -163,8 +178,8 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                
-                <div className="h-fit h-max-full">
+
+                <div className="h-fit max-h-full">
                   <label className="block text-white text-sm font-medium mb-2">
                     {t('contact.form.message')}
                   </label>
@@ -186,7 +201,7 @@ const Contact = () => {
                   <SendHorizontal className="h-5 w-5" />
                 </Button>
               </form>
-            }
+            </>}
           </div>
 
           {/* Contact Information */}
