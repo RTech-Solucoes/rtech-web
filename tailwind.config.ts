@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+const colors = require('tailwindcss/colors')
 
 export default {
 	darkMode: ["class"],
@@ -19,6 +20,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'rethink': ['Rethink Sans', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -64,9 +68,6 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
-			},
-			fontFamily: {
-				nasalization: ['"Mais Jacarta Sans"', "sans-serif"],
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

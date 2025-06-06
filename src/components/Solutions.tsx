@@ -26,8 +26,8 @@ const Solutions = () => {
 
   return (
     <section id="solutions" className="pb-20 pt-40 bg-gradient-to-b from-primary-light to-primary relative overflow-hidden">
-      <div className="absolute bottom-40 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-40 left-0 w-72 h-72 bg-accent/10 rounded-lg blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/30 rounded-lg blur-3xl"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-56">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -69,15 +69,15 @@ const Solutions = () => {
           </div>
         </div>
         <div className="relative">
-          <div className="glass-effect p-8 rounded-2xl" data-aos="zoom-out">
+          <div className="bg-white/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="zoom-out">
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="text-white text-2xl font-semibold">{t('solutions.dashboard')}</div>
                 <div className="flex space-x-2">
-                  <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <div className="w-3 h-3 bg-red-400 rounded-lg"></div>
+                  <div className="w-3 h-3 bg-yellow-400 rounded-lg"></div>
+                  <div className="w-3 h-3 bg-green-400 rounded-lg"></div>
                 </div>
               </div>
 

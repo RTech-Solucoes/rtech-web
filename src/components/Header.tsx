@@ -19,15 +19,12 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 w-full z-50 px-4" data-aos="fade-down">
-      <div className="max-w-5xl mx-auto min-w-fit mt-8 px-4 sm:px-6 lg:px-8 glass-effect rounded-full">
+      <div className="max-w-5xl mx-auto min-w-fit mt-8 px-4 sm:px-6 lg:px-8 bg-white/10 backdrop-blur-xl rounded-full ">
         <div className="max-w-5xl mx-auto min-w-fit">
           <div className="flex justify-between items-center gap-8 py-4">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="relative">
-                <img src="logo-icon.png" className="h-8 text-white animate-pulse-slow" alt="Logo Icon" />
-                <div className="absolute inset-0 left-1 h-8 w-8 bg-white rounded-full blur-md opacity-30 animate-glow"></div>
-              </div>
+              <img src="logo-icon.png" className="h-8 text-white animate-pulse-slow" alt="Logo Icon" />
               <img src="logo-name.svg" className="w-20 min-w-20" alt="Logo Name" />
             </div>
             {/* Desktop Navigation */}
@@ -49,7 +46,7 @@ const Header = () => {
             {/* Language Selector and CTA */}
             <div className="hidden md:flex items-center space-x-4">
               <LanguageSelector />
-              <a href="#contact" className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:scale-105">
+              <a href="#contact" className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 ">
                 {t('nav.getStarted')}
               </a>
             </div>
@@ -70,7 +67,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-primary rounded-lg mt-2">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-primary rounded-full mt-2">
             {navigation.map((item) => (
               <a
                 key={item.name}

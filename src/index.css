@@ -43,6 +43,9 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --color-accent-default: theme(colors.accent.DEFAULT);
+    --color-accent-foreground: theme(colors.accent.foreground);
   }
 
   .dark {
@@ -90,25 +93,13 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-rethink;
   }
 }
 
-.glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
 .text-gradient {
-  background: linear-gradient(90deg, #00D4FF 0%, #0099CC 100%);
+  background: linear-gradient(90deg, var(--color-accent-foreground) 0%, var(--color-accent-default) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.neural-network {
-  background-image: 
-    radial-gradient(circle at 25% 25%, #00D4FF33 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, #004067 0%, transparent 50%);
 }

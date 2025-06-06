@@ -40,7 +40,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="max-w-2xl group relative glass-effect p-8 rounded-2xl hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20"
+              className="max-w-2xl group relative bg-white/10 backdrop-blur-xl p-8 rounded-2xl  transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20"
               data-aos="zoom-in"
               data-aos-delay={400 + index * 100}
             >

@@ -60,9 +60,9 @@ const Stats = () => {
               key={index}
               data-aos="zoom-in"
               data-aos-delay={400 + index * 100}
-              className="text-center group hover:scale-105 transition-transform duration-300"
+              className="text-center group  transition-transform duration-300"
             >
-              <div className="glass-effect p-8 rounded-2xl">
+              <div className="bg-white/10 backdrop-blur-xl p-8 rounded-2xl">
                 {/* Icon */}
                 <div className="relative mx-auto mb-6 w-16 h-16">
                   <div className="absolute inset-0 bg-accent/20 rounded-xl group-hover:bg-accent/30 transition-colors"></div>
@@ -92,14 +92,14 @@ const Stats = () => {
 
         {/* Bottom CTA */}
         <div data-aos="zoom-out" data-aos-delay={800} className="text-center mt-16">
-          <div className="glass-effect inline-block p-8 rounded-2xl">
+          <div className="bg-white/10 backdrop-blur-xl inline-block p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-white mb-4">
               {t('stats.cta.title')}
             </h3>
             <p className="text-blue-100 mb-6 max-w-md">
               {t('stats.cta.subtitle')}
             </p>
-            <a href="#contact" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
+            <a href="#contact" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 ">
               {t('stats.cta.button')}
             </a>
           </div>

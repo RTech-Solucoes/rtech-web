@@ -76,7 +76,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <a 
+                    <a
                       href={link.href}
                       className="text-blue-100 hover:text-accent transition-colors text-sm"
                     >
