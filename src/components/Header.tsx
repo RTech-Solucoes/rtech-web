@@ -46,16 +46,16 @@ const Header = () => {
             {/* Language Selector and CTA */}
             <div className="hidden md:flex items-center space-x-4">
               <LanguageSelector />
-              <a href="#contact" className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 ">
+              <a href="#contact" className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 ">
                 {t('nav.getStarted')}
               </a>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden max-h-6">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white hover:text-accent transition-colors pt-1"
+                className="text-white hover:text-accent transition-colors"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -67,7 +67,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-primary rounded-full mt-2">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-primary rounded-lg mt-2">
             {navigation.map((item) => (
               <a
                 key={item.name}
@@ -80,7 +80,7 @@ const Header = () => {
             ))}
             <div className="px-3 py-2 flex items-center justify-between">
               <LanguageSelector />
-              <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold">
+              <Button className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-full">
                 {t('nav.getStarted')}
               </Button>
             </div>

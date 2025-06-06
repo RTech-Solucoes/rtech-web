@@ -28,6 +28,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   const translations = {
     pt: {
+      //Global
+      'instagram_url': "https://www.instagram.com/rtech_solution",
+      'linkedin_url': "https://www.linkedin.com/company/r-techsolution",
+
       // Header
       'nav.home': 'Início',
       'nav.services': 'Serviços',
@@ -141,6 +145,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       'footer.copyright': '© 2025 RTech. Todos os direitos reservados. Construindo o futuro com tecnologia.'
     },
     en: {
+      //Global
+      'instagram_url': "https://www.instagram.com/rtech_solution",
+      'linkedin_url': "https://www.linkedin.com/company/r-techsolution",
+
       // Header
       'nav.home': 'Home',
       'nav.services': 'Services',

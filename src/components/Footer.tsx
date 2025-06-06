@@ -4,12 +4,11 @@ import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' }
+    { icon: Instagram, href: t("instagram_url"), label: "Instagram" },
+    { icon: Linkedin, href: t("linkedin_url"), label: "LinkedIn" },
   ];
 
   const footerLinks = {
@@ -132,6 +131,7 @@ const Footer = () => {
               {socialLinks.map((social, index) => (
                 <a
                   key={social.label}
+                  target="_blank"
                   href={social.href}
                   className="text-blue-100 hover:text-accent transition-colors"
                   aria-label={social.label}

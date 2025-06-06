@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import './App.css'
 
 const queryClient = new QueryClient();
 
