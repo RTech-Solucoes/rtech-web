@@ -10,21 +10,21 @@ const Header = () => {
   const { t } = useLanguage();
 
   const navigation = [
-    { name: t('nav.home'), href: '#home' },
-    { name: t('nav.services'), href: '#services' },
-    { name: t('nav.solutions'), href: '#solutions' },
-    { name: t('nav.about'), href: '#about' },
-    { name: t('nav.contact'), href: '#contact' }
+    { name: t('nav_home'), href: '#home' },
+    { name: t('nav_services'), href: '#services' },
+    { name: t('nav_solutions'), href: '#solutions' },
+    { name: t('nav_about'), href: '#about' },
+    { name: t('nav_contact'), href: '#contact' }
   ];
 
   return (
     <header className="fixed top-0 w-full z-50 px-4" data-aos="fade-down">
-      <div className="max-w-5xl mx-auto min-w-fit mt-8 px-4 sm:px-6 lg:px-8 bg-white/10 backdrop-blur-xl rounded-full ">
+      <div className="max-w-5xl mx-auto min-w-fit mt-8 px-4 sm:px-6 lg:px-8 bg-foreground/10 backdrop-blur-xl rounded-full ">
         <div className="max-w-5xl mx-auto min-w-fit">
           <div className="flex justify-between items-center gap-8 py-4">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <img src="logo-icon.png" className="h-8 text-white animate-pulse-slow" alt="Logo Icon" />
+              <img src="logo-icon.png" className="h-8" alt="Logo Icon" />
               <img src="logo-name.svg" className="w-20 min-w-20" alt="Logo Name" />
             </div>
             {/* Desktop Navigation */}
@@ -33,7 +33,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-white font-medium hover:text-accent transition-colors duration-300 relative group"
+                  className="text-foreground font-medium hover:text-accent transition-colors duration-300 relative group"
                   data-aos="fade-down"
                   data-aos-delay={300 + index * 100}
                 >
@@ -46,8 +46,8 @@ const Header = () => {
             {/* Language Selector and CTA */}
             <div className="hidden md:flex items-center space-x-4">
               <LanguageSelector />
-              <a href="#contact" className="bg-accent hover:bg-accent/90 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 ">
-                {t('nav.getStarted')}
+              <a href="#contact" className="bg-accent hover:bg-accent/90 text-foreground font-semibold px-6 py-2 rounded-full transition-all duration-300 ">
+                {t('nav_getStarted')}
               </a>
             </div>
 
@@ -55,7 +55,7 @@ const Header = () => {
             <div className="md:hidden max-h-6">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white hover:text-accent transition-colors"
+                className="text-foreground hover:text-accent transition-colors"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -72,7 +72,7 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-white hover:text-accent transition-colors"
+                className="block px-3 py-2 text-foreground hover:text-accent transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -80,8 +80,8 @@ const Header = () => {
             ))}
             <div className="px-3 py-2 flex items-center justify-between">
               <LanguageSelector />
-              <Button className="bg-accent hover:bg-accent/90 text-white font-semibold rounded-full">
-                {t('nav.getStarted')}
+              <Button className="bg-accent hover:bg-accent/90 text-foreground font-semibold rounded-full">
+                {t('nav_getStarted')}
               </Button>
             </div>
           </div>

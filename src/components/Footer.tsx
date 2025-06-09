@@ -9,8 +9,8 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: () => <Whatsapp className="h-6 w-6 fill-blue-100 hover:fill-accent transition-colors"/>,
-      href: 'https://wa.me/' + t('phone.plain'),
+      icon: () => <Whatsapp className="h-6 w-6 fill-muted-foreground hover:fill-accent transition-colors"/>,
+      href: 'https://wa.me/' + t('phone_plain'),
       label: "Whatsapp"
     },
     {
@@ -27,16 +27,16 @@ const Footer = () => {
 
   const footerLinks = {
     company: [
-      { name: t('footer.aboutUs'), href: '#about' },
-      { name: t('nav.contact'), href: '#contact' }
+      { name: t('footer_aboutUs'), href: '#about' },
+      { name: t('nav_contact'), href: '#contact' }
     ],
     services: [
-      { name: t('footer.aiDevelopment'), href: '#services' },
-      { name: t('footer.dataAnalytics'), href: '#services' },
-      { name: t('footer.consulting'), href: '#services' }
+      { name: t('footer_aiDevelopment'), href: '#services' },
+      { name: t('footer_dataAnalytics'), href: '#services' },
+      { name: t('footer_consulting'), href: '#services' }
     ],
     resources: [
-      { name: t('footer.supportFooter'), href: '#support' }
+      { name: t('footer_supportFooter'), href: '#support' }
     ]
   };
 
@@ -57,25 +57,25 @@ const Footer = () => {
           <div className="lg:col-span-1 space-y-6" data-aos="fade-up" data-aos-delay="100">
             <div className="flex items-center space-x-3">
               <div className="flex items-center space-x-3">
-                <img src="logo-icon.png" className="h-8 text-white animate-pulse-slow" alt="Logo Icon" />
+                <img src="logo-icon.png" className="h-8" alt="Logo Icon" />
                 <img src="logo-name.svg" className="w-20 min-w-20" alt="Logo Name" />
               </div>
             </div>
 
-            <p className="text-blue-100 leading-relaxed">
-              {t('footer.description')}
+            <p className="text-muted-foreground leading-relaxed">
+              {t('footer_description')}
             </p>
 
             <div className="space-y-3">
-              <div className="flex items-center space-x-3 text-blue-100">
+              <div className="flex items-center space-x-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-accent" />
                 <span className="text-sm">{t("email")}</span>
               </div>
-              <div className="flex items-center space-x-3 text-blue-100">
+              <div className="flex items-center space-x-3 text-muted-foreground">
                 <Phone className="h-4 w-4 text-accent" />
                 <span className="text-sm">{t("phone")}</span>
               </div>
-              <div className="flex items-center space-x-3 text-blue-100">
+              <div className="flex items-center space-x-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-accent" />
                 <span className="text-sm">{t("location")}</span>
               </div>
@@ -85,13 +85,13 @@ const Footer = () => {
           {/* Links Sections */}
           <div className="lg:col-span-3 grid md:grid-cols-3 gap-8">
             <div data-aos="fade-up" data-aos-delay="200">
-              <h3 className="text-white font-semibold mb-4">{t('footer.company')}</h3>
+              <h3 className="text-foreground font-semibold mb-4">{t('footer_company')}</h3>
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-blue-100 hover:text-accent transition-colors text-sm"
+                      className="text-muted-foreground hover:text-accent transition-colors text-sm"
                     >
                       {link.name}
                     </a>
@@ -101,13 +101,13 @@ const Footer = () => {
             </div>
 
             <div data-aos="fade-up" data-aos-delay="300">
-              <h3 className="text-white font-semibold mb-4">{t('nav.services')}</h3>
+              <h3 className="text-foreground font-semibold mb-4">{t('nav_services')}</h3>
               <ul className="space-y-3">
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-blue-100 hover:text-accent transition-colors text-sm"
+                      className="text-muted-foreground hover:text-accent transition-colors text-sm"
                     >
                       {link.name}
                     </a>
@@ -117,13 +117,13 @@ const Footer = () => {
             </div>
 
             <div data-aos="fade-up" data-aos-delay="400">
-              <h3 className="text-white font-semibold mb-4">{t('footer.resources')}</h3>
+              <h3 className="text-foreground font-semibold mb-4">{t('footer_resources')}</h3>
               <ul className="space-y-3">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-blue-100 hover:text-accent transition-colors text-sm"
+                      className="text-muted-foreground hover:text-accent transition-colors text-sm"
                     >
                       {link.name}
                     </a>
@@ -135,10 +135,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
+        <div className="mt-12 pt-8 border-t border-foreground/10" data-aos="fade-up" data-aos-delay="500">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-blue-100 text-sm">
-              {t('footer.copyright')}
+            <div className="text-muted-foreground text-sm">
+              {t('footer_copyright')}
             </div>
 
             <div className="flex items-center space-x-6">
@@ -151,7 +151,7 @@ const Footer = () => {
                   data-aos="zoom-in"
                   data-aos-delay={600 + index * 100}
                 >
-                  <social.icon className="h-5 w-5 text-blue-100 hover:text-accent transition-colors" />
+                  <social.icon className="h-5 w-5 text-muted-foreground hover:text-accent transition-colors" />
                 </a>
               ))}
             </div>

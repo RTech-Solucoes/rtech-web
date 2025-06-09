@@ -4,10 +4,10 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
 import {useLanguage} from "@/contexts/LanguageContext.tsx";
-import emailjs from '@emailjs/browser'
-import {EMAIL_KEYS} from "@/constants/email.ts";
 import {Whatsapp} from "@/components/ui/custom-icons.tsx";
-import {CopyToClipboard} from "@/lib/utils.tsx";
+import {copyToClipboard} from "@/lib/utils.tsx";
+import {useToast} from "@/hooks/use-toast.ts";
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,16 +23,18 @@ const Contact = () => {
 
   const { t } = useLanguage();
 
+  const { toast } = useToast();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true)
 
     try {
-      emailjs.init(EMAIL_KEYS.API);
+      emailjs.init(__EMAIL_API_KEY__);
 
       await emailjs.send(
-        EMAIL_KEYS.SERVICE,
-        EMAIL_KEYS.TEMPLATE,
+        __EMAIL_SERVICE_KEY__,
+        __EMAIL_TEMPLATE_KEY__,
         {
           name: formData.name,
           email: formData.email,
@@ -65,27 +67,31 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: t('contact.info.email.title'),
+      title: t('contact_info_email_title'),
       value: t('email'),
       href: 'mailto:' + t('email'),
+      copied: t('contact_info_email_copied'),
     },
     {
       icon: () => <Whatsapp className="w-7 fill-accent" />,
-      title: t('contact.info.whatsapp.title'),
+      title: t('contact_info_whatsapp_title'),
       value: t('phone'),
-      href: 'https://wa.me/' + t('phone.plain'),
+      href: 'https://wa.me/' + t('phone_plain'),
+      copied: t('contact_info_whatsapp_copied'),
     },
     {
       icon: Phone,
-      title: t('contact.info.phone.title'),
+      title: t('contact_info_phone_title'),
       value: t('phone'),
-      href: 'tel:' + t('phone.plain'),
+      href: 'tel:' + t('phone_plain'),
+      copied: t('contact_info_phone_copied'),
     },
     {
       icon: MapPin,
-      title: t('contact.info.local.title'),
+      title: t('contact_info_local_title'),
       value: t('location'),
       href: 'https://www.google.com/maps/place/' + encodeURIComponent(t('location')),
+      copied: t('contact_info_local_copied'),
     }
   ];
 
@@ -97,43 +103,43 @@ const Contact = () => {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            {t('contact.title')} <span className="text-gradient">{t('contact.titleHighlight')}</span> {t('contact.titleEnd')}
+          <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+            {t('contact_title')} <span className="text-gradient">{t('contact_titleHighlight')}</span> {t('contact_titleEnd')}
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            {t('contact.subtitle')}
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {t('contact_subtitle')}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="flex flex-col bg-white/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="fade-right" data-aos-delay="200">
+          <div className="flex flex-col bg-foreground/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="fade-right" data-aos-delay="200">
             {submitted || error ? (
               error ?
                 <div className="text-center my-auto px-24">
                   <TriangleAlert className="h-16 w-16 text-red-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-white mb-2">{t('contact.form.error')}</h4>
-                  <p className="text-blue-100">{t('contact.form.errorDescription')}</p>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">{t('contact_form_error')}</h4>
+                  <p className="text-muted-foreground">{t('contact_form_errorDescription')}</p>
                 </div> :
                 <div className="text-center my-auto px-24">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-white mb-2">{t('contact.form.success')}</h4>
-                  <p className="text-blue-100">{t('contact.form.successDescription')}</p>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">{t('contact_form_success')}</h4>
+                  <p className="text-muted-foreground">{t('contact_form_successDescription')}</p>
                 </div>
             ) : loading ? (
               <div className="text-center my-auto">
-                <div className="border-8 border-accent border-b-white animate-spin rounded-full w-16 h-16 mx-auto mb-4" />
-                <span className="text-xl font-semibold text-white mb-2">
+                <div className="border-8 border-accent border-b-foreground animate-spin rounded-full w-16 h-16 mx-auto mb-4" />
+                <span className="text-xl font-semibold text-foreground mb-2">
                   Enviando ...
                 </span>
               </div>
             ) : <>
               <form onSubmit={handleSubmit} className="flex flex-col space-y-[26px] md:justify-between md:space-y-0 h-full overflow-hidden">
-                <h3 className="text-2xl font-bold text-white">{t('contact.form.title')}</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('contact_form_title')}</h3>
                 <div className="grid md:grid-cols-2 gap-[26px]">
                   <div>
-                    <label className="block text-white text-sm font-medium mb-2">
-                      {t('contact.form.name')}
+                    <label className="block text-foreground text-sm font-medium mb-2">
+                      {t('contact_form_name')}
                     </label>
                     <Input
                       type="text"
@@ -141,13 +147,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder-blue-200"
-                      placeholder={t('contact.form.namePlaceholder')}
+                      className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
+                      placeholder={t('contact_form_namePlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-white text-sm font-medium mb-2">
-                      {t('contact.form.email')}
+                    <label className="block text-foreground text-sm font-medium mb-2">
+                      {t('contact_form_email')}
                     </label>
                     <Input
                       type="email"
@@ -155,41 +161,41 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-white/10 border-white/20 text-white placeholder-blue-200"
-                      placeholder={t('contact.form.emailPlaceholder')}
+                      className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
+                      placeholder={t('contact_form_emailPlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-white text-sm font-medium mb-2">
-                      {t('contact.form.company')}
+                    <label className="block text-foreground text-sm font-medium mb-2">
+                      {t('contact_form_company')}
                     </label>
                     <Input
                       type="text"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="bg-white/10 border-white/20 text-white placeholder-blue-200"
-                      placeholder={t('contact.form.companyPlaceholder')}
+                      className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
+                      placeholder={t('contact_form_companyPlaceholder')}
                     />
                   </div>
                   <div>
-                    <label className="block text-white text-sm font-medium mb-2">
-                      {t('contact.form.phone')}
+                    <label className="block text-foreground text-sm font-medium mb-2">
+                      {t('contact_form_phone')}
                     </label>
                     <Input
                       type="text"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="bg-white/10 border-white/20 text-white placeholder-blue-200"
-                      placeholder={t('contact.form.phonePlaceholder')}
+                      className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
+                      placeholder={t('contact_form_phonePlaceholder')}
                     />
                   </div>
                 </div>
 
                 <div className="h-fit max-h-full">
-                  <label className="block text-white text-sm font-medium mb-2">
-                    {t('contact.form.message')}
+                  <label className="block text-foreground text-sm font-medium mb-2">
+                    {t('contact_form_message')}
                   </label>
                   <Textarea
                     name="message"
@@ -197,15 +203,15 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={10}
-                    className="bg-white/10 border-white/20 text-white placeholder-blue-200 resize-none"
-                    placeholder={t('contact.form.messagePlaceholder')}
+                    className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground resize-none"
+                    placeholder={t('contact_form_messagePlaceholder')}
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 rounded-lg transition-all duration-300 group"
+                  className="w-full bg-accent hover:bg-accent/90 text-foreground font-semibold py-3 rounded-lg transition-all duration-300 group"
                 >
-                  {t('contact.form.send')}
+                  {t('contact_form_send')}
                   <SendHorizontal className="h-5 w-5" />
                 </Button>
               </form>
@@ -215,9 +221,9 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8" data-aos="fade-left" data-aos-delay="400">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">{t('contact.info.title')}</h3>
-              <p className="text-blue-100 leading-relaxed">
-                {t('contact.info.subtitle')}
+              <h3 className="text-2xl font-bold text-foreground mb-6">{t('contact_info_title')}</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {t('contact_info_subtitle')}
               </p>
             </div>
 
@@ -225,14 +231,14 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 bg-white/10 backdrop-blur-xl p-6 rounded-xl transition-transform duration-300"
+                  className="flex items-start space-x-4 bg-foreground/10 backdrop-blur-xl p-6 rounded-xl transition-transform duration-300"
                   data-aos="fade-up"
                   data-aos-delay={600 + index * 100}
                 >
                   <div className="flex-shrink-0 bg-accent/20 hover:bg-accent/30 rounded-lg">
                     <a
                       href={info.href}
-                      onClick={() => CopyToClipboard(info.value)}
+                      onClick={() => copyToClipboard(info.value, toast, info.copied)}
                       target={info.title.toLowerCase().includes('email') ? '_self' : '_blank'}
                       rel="noopener noreferrer"
                       className="w-12 h-12 flex items-center justify-center relative"
@@ -241,10 +247,10 @@ const Contact = () => {
                     </a>
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">{info.title}</h4>
+                    <h4 className="text-foreground font-semibold">{info.title}</h4>
                     <div
                       className="text-accent font-medium hover:underline cursor-pointer"
-                      onClick={() => CopyToClipboard(info.value)}
+                      onClick={() => copyToClipboard(info.value, toast, info.copied)}
                     >
                       {info.value}
                     </div>
