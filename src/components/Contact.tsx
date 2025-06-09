@@ -98,8 +98,8 @@ const Contact = () => {
   return (
     <section id="contact" className="pb-20 pt-32 bg-gradient-to-b from-primary to-primary-light relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-accent/10 rounded-lg blur-3xl animate-float"></div>
-      <div className="absolute bottom-20 left-20 w-48 h-48 bg-primary/30 rounded-lg blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 right-20 w-64 h-64 bg-accent/10 rounded-3xl blur-3xl animate-float"></div>
+      <div className="absolute bottom-20 left-20 w-48 h-48 bg-primary/30 rounded-3xl blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
@@ -113,7 +113,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="flex flex-col bg-foreground/10 backdrop-blur-xl p-8 rounded-2xl" data-aos="fade-right" data-aos-delay="200">
+          <div className="flex flex-col bg-foreground/10 backdrop-blur-xl p-8 rounded-3xl" data-aos="fade-right" data-aos-delay="200">
             {submitted || error ? (
               error ?
                 <div className="text-center my-auto px-24">
@@ -209,7 +209,7 @@ const Contact = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-accent hover:bg-accent/90 text-foreground font-semibold py-3 rounded-lg transition-all duration-300 group"
+                  className="w-full bg-accent hover:bg-accent/90 text-foreground font-semibold py-3 rounded-3xl transition-all duration-300 group"
                 >
                   {t('contact_form_send')}
                   <SendHorizontal className="h-5 w-5" />
@@ -231,11 +231,11 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 bg-foreground/10 backdrop-blur-xl p-6 rounded-xl transition-transform duration-300"
+                  className="flex items-start space-x-4 bg-foreground/10 backdrop-blur-xl p-6 rounded-3xl transition-transform duration-300"
                   data-aos="fade-up"
                   data-aos-delay={600 + index * 100}
                 >
-                  <div className="flex-shrink-0 bg-accent/20 hover:bg-accent/30 rounded-lg">
+                  <div className="flex-shrink-0 bg-accent/20 hover:bg-accent/30 rounded-3xl">
                     <a
                       href={info.href}
                       onClick={() => copyToClipboard(info.value, toast, info.copied)}

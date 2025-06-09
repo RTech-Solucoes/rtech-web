@@ -67,7 +67,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-primary rounded-lg mt-2">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-primary rounded-3xl mt-2">
             {navigation.map((item) => (
               <a
                 key={item.name}

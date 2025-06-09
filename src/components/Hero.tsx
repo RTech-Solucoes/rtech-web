@@ -29,8 +29,8 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen bg-primary relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-accent/20 rounded-lg blur-3xl animate-float"></div>
-      <div className="absolute bottom-20 left-20 w-48 h-48 bg-primary-light/30 rounded-lg blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 right-20 w-64 h-64 bg-accent/20 rounded-3xl blur-3xl animate-float"></div>
+      <div className="absolute bottom-20 left-20 w-48 h-48 bg-primary-light/30 rounded-3xl blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
 
       <div className="container relative max-w-7xl mx-auto px-4 pt-36 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

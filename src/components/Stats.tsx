@@ -56,10 +56,10 @@ const Stats = () => {
               data-aos-delay={400 + index * 100}
               className="text-center group  transition-transform duration-300"
             >
-              <div className="bg-foreground/10 backdrop-blur-xl p-8 rounded-2xl">
+              <div className="bg-foreground/10 backdrop-blur-xl p-8 rounded-3xl">
                 {/* Icon */}
                 <div className="relative mx-auto mb-6 w-16 h-16">
-                  <div className="absolute inset-0 bg-accent/20 rounded-xl group-hover:bg-accent/30 transition-colors"></div>
+                  <div className="absolute inset-0 bg-accent/20 rounded-3xl group-hover:bg-accent/30 transition-colors"></div>
                   <div className="relative w-full h-full flex items-center justify-center">
                     <stat.icon className="h-8 w-8 text-accent" />
                   </div>
@@ -86,14 +86,14 @@ const Stats = () => {
 
         {/* Bottom CTA */}
         <div data-aos="zoom-out" data-aos-delay={800} className="text-center mt-16 w-full">
-          <div className="flex flex-col items-center bg-foreground/10 backdrop-blur-xl inline-block p-8 rounded-2xl w-full md:w-fit mx-auto">
+          <div className="flex flex-col items-center bg-foreground/10 backdrop-blur-xl inline-block p-8 rounded-3xl w-full md:w-fit mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               {t('stats_cta_title')}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md">
               {t('stats_cta_subtitle')}
             </p>
-            <a href="#contact" className="bg-accent hover:bg-accent/90 text-foreground font-semibold px-8 py-3 rounded-lg transition-all duration-300 ">
+            <a href="#contact" className="bg-accent hover:bg-accent/90 text-foreground font-semibold px-8 py-3 rounded-3xl transition-all duration-300 ">
               {t('stats_cta_button')}
             </a>
           </div>

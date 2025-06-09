@@ -43,16 +43,16 @@ const Services = () => {
               key={index}
               href={service.href}
               target="_blank"
-              className="max-w-2xl group relative bg-foreground/10 backdrop-blur-xl p-8 rounded-2xl  transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20"
+              className="max-w-2xl group relative bg-foreground/10 backdrop-blur-xl p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20"
               data-aos="zoom-in"
               data-aos-delay={400 + index * 100}
             >
               {/* Icon */}
               <div className="relative mb-6">
-                <div className="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center group-hover:bg-accent/30 transition-colors">
+                <div className="w-16 h-16 bg-accent/20 rounded-3xl flex items-center justify-center group-hover:bg-accent/30 transition-colors">
                   <service.icon className="h-8 w-8 text-accent" />
                 </div>
-                <div className="absolute inset-0 w-16 h-16 bg-accent/10 rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
+                <div className="absolute inset-0 w-16 h-16 bg-accent/10 rounded-3xl blur-lg group-hover:blur-xl transition-all"></div>
               </div>
 
               {/* Content */}
@@ -64,7 +64,7 @@ const Services = () => {
               </p>
 
               {/* Hover Effect Border */}
-              <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-accent/50 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-accent/50 transition-all duration-300"></div>
             </a>
           ))}
         </div>
