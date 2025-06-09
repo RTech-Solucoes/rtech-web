@@ -2,13 +2,27 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import {Whatsapp} from "@/components/ui/custom-icons.tsx";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   const socialLinks = [
-    { icon: Instagram, href: t("instagram_url"), label: "Instagram" },
-    { icon: Linkedin, href: t("linkedin_url"), label: "LinkedIn" },
+    {
+      icon: () => <Whatsapp className="h-6 w-6 fill-blue-100 hover:fill-accent transition-colors"/>,
+      href: 'https://wa.me/' + t('phone.plain'),
+      label: "Whatsapp"
+    },
+    {
+      icon: Instagram,
+      href: t("instagram_url"),
+      label: "Instagram"
+    },
+    {
+      icon: Linkedin,
+      href: t("linkedin_url"),
+      label: "LinkedIn"
+    },
   ];
 
   const footerLinks = {
@@ -47,23 +61,23 @@ const Footer = () => {
                 <img src="logo-name.svg" className="w-20 min-w-20" alt="Logo Name" />
               </div>
             </div>
-            
+
             <p className="text-blue-100 leading-relaxed">
               {t('footer.description')}
             </p>
-            
+
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-blue-100">
                 <Mail className="h-4 w-4 text-accent" />
-                <span className="text-sm">contato@rtechsolution.com.br</span>
+                <span className="text-sm">{t("email")}</span>
               </div>
               <div className="flex items-center space-x-3 text-blue-100">
                 <Phone className="h-4 w-4 text-accent" />
-                <span className="text-sm">(34) 99681-7814</span>
+                <span className="text-sm">{t("phone")}</span>
               </div>
               <div className="flex items-center space-x-3 text-blue-100">
                 <MapPin className="h-4 w-4 text-accent" />
-                <span className="text-sm">Uberlândia, MG</span>
+                <span className="text-sm">{t("location")}</span>
               </div>
             </div>
           </div>
@@ -85,13 +99,13 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            
+
             <div data-aos="fade-up" data-aos-delay="300">
               <h3 className="text-white font-semibold mb-4">{t('nav.services')}</h3>
               <ul className="space-y-3">
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
-                    <a 
+                    <a
                       href={link.href}
                       className="text-blue-100 hover:text-accent transition-colors text-sm"
                     >
@@ -101,13 +115,13 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            
+
             <div data-aos="fade-up" data-aos-delay="400">
               <h3 className="text-white font-semibold mb-4">{t('footer.resources')}</h3>
               <ul className="space-y-3">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
-                    <a 
+                    <a
                       href={link.href}
                       className="text-blue-100 hover:text-accent transition-colors text-sm"
                     >
@@ -126,19 +140,18 @@ const Footer = () => {
             <div className="text-blue-100 text-sm">
               {t('footer.copyright')}
             </div>
-            
+
             <div className="flex items-center space-x-6">
               {socialLinks.map((social, index) => (
                 <a
                   key={social.label}
                   target="_blank"
                   href={social.href}
-                  className="text-blue-100 hover:text-accent transition-colors"
                   aria-label={social.label}
                   data-aos="zoom-in"
                   data-aos-delay={600 + index * 100}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-5 w-5 text-blue-100 hover:text-accent transition-colors" />
                 </a>
               ))}
             </div>

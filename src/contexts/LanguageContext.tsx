@@ -31,7 +31,11 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       //Global
       "instagram_url": "https://www.instagram.com/rtech_solution",
       "linkedin_url": "https://www.linkedin.com/company/r-techsolution",
-
+      "email": "contato@rtechsolution.com.br",
+      "phone": "(34) 99681-7814",
+      "phone.plain": "34996817814",
+      "location": "Uberlândia, MG",
+      
       // Header
       "nav.home": "Início",
       "nav.services": "Serviços",
@@ -55,7 +59,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       "services.titleHighlight": "Entregamos",
       "services.subtitle": "Soluções abrangentes que impulsionam a inovação e transformam negócios em todos os setores com tecnologia de ponta.",
       "services.cl.title": "Chatlog",
-      "services.cl.description": "Chatbot inteligente com IA, API de integração e CRM completo. Automatize 90% do seu atendimento e aumente suas vendas em 300%.",
+      "services.cl.description": "Automatize conversas, aumente vendas e ofereça suporte 24/7 com nosso chatbot inteligente.",
       "services.db.title": "Dashboards e relatórios personalizados",
       "services.db.description": "Conectamos sistemas, redes e CRMs de forma fluida.",
       "services.in.title": "Integrações inteligentes",
@@ -119,13 +123,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       "contact.info.title": "Entre em contato",
       "contact.info.subtitle": "Quer você precise de consultoria técnica ou queira explorar oportunidades de parceria, nossa equipe está aqui para ajudá-lo a navegar no futuro da tecnologia.",
       "contact.info.email.title": "Mande um email",
-      "contact.info.email.value": "contato@rtechsolution.com.br",
       "contact.info.email.description": "Entre em contato a qualquer momento",
+      "contact.info.whatsapp.title": "Mande uma mensagem",
+      "contact.info.whatsapp.description": "Te responderemos assim que possível",
       "contact.info.phone.title": "Nos ligue",
-      "contact.info.phone.value": "(34) 99681-7814",
       "contact.info.phone.description": "De segunda à sexta, das 9 às 18",
       "contact.info.local.title": "Nos visite",
-      "contact.info.local.value": "Uberlândia, MG",
       "contact.info.local.description": "Agende uma reunião",
       "contact.emergency.title": "Precisa de suporte imediato ?",
       "contact.emergency.subtitle": "Nossos especialistas em estão disponíveis para consultas de emergência e necessidades urgentes de projetos.",
@@ -146,12 +149,21 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       "footer.caseStudies": "Casos de Estudo",
       "footer.blog": "Blog",
       "footer.supportFooter": "Suporte",
-      "footer.copyright": "© 2025 RTech. Todos os direitos reservados. Construindo o futuro com tecnologia."
+      "footer.copyright": "© 2025 RTech. Todos os direitos reservados. Construindo o futuro com tecnologia.",
+
+      //Not Found
+      "pnf.code": "404",
+      "pnf.title": "Pagina não encontrada",
+      "pnf.action": "Retornar para página principal"
     },
     en: {
       //Global
       "instagram_url": "https://www.instagram.com/rtech_solution",
       "linkedin_url": "https://www.linkedin.com/company/r-techsolution",
+      "email": "contato@rtechsolution.com.br",
+      "phone": "(34) 99681-7814",
+      "phone.plain": "34996817814",
+      "location": "Uberlândia, MG",
 
       // Header
       "nav.home": "Home",
@@ -176,7 +188,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       "services.titleHighlight": "Deliver",
       "services.subtitle": "Comprehensive solutions that drive innovation and transform businesses across all sectors with cutting-edge technology.",
       "services.cl.title": "Chatlog",
-      "services.cl.description": "Intelligent AI chatbot with integration API and complete CRM. Automate 90% of your customer service and increase your sales by 300%.",
+      "services.cl.description": "Automate conversations, increase sales and offer 24/7 support with our intelligent chatbot.",
       "services.db.title": "Custom Dashboards and Reports",
       "services.db.description": "We connect systems, networks, and CRMs seamlessly.",
       "services.in.title": "Intelligent Integrations",
@@ -240,13 +252,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       "contact.info.title": "Get in touch",
       "contact.info.subtitle": "Whether you need technical consulting or want to explore partnership opportunities, our team is here to help you navigate the future of technology.",
       "contact.info.email.title": "Send an email",
-      "contact.info.email.value": "contato@rtechsolution.com.br",
       "contact.info.email.description": "Contact us anytime",
+      "contact.info.whatsapp.title": "Send a message",
+      "contact.info.whatsapp.description": "We'll reply as soon as possible",
       "contact.info.phone.title": "Call us",
-      "contact.info.phone.value": "(34) 99681-7814",
       "contact.info.phone.description": "Monday to Friday, from 9 AM to 6 PM",
       "contact.info.local.title": "Visit us",
-      "contact.info.local.value": "Uberlândia, MG",
       "contact.info.local.description": "Schedule a meeting",
       "contact.emergency.title": "Need immediate support?",
       "contact.emergency.subtitle": "Our experts are available for emergency consultations and urgent project needs.",
@@ -267,7 +278,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       "footer.caseStudies": "Case Studies",
       "footer.blog": "Blog",
       "footer.supportFooter": "Support",
-      "footer.copyright": "© 2025 RTech. All rights reserved. Building the future with technology."
+      "footer.copyright": "© 2025 RTech. All rights reserved. Building the future with technology.",
+
+      //Not Found
+      "pnf.code": "404",
+      "pnf.title": "Page not found",
+      "pnf.action": "Return to home"
     }
   };
 

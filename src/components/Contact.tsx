@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {CheckCircle, Mail, MapPin, Phone, SendHorizontal, TriangleAlert} from 'lucide-react';
+import {CheckCircle, Mail, MapPin, Phone, SendHorizontal, TriangleAlert, MessageCircle, Icon} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
 import {useLanguage} from "@/contexts/LanguageContext.tsx";
 import emailjs from '@emailjs/browser'
 import {EMAIL_KEYS} from "@/constants/email.ts";
+import {Whatsapp} from "@/components/ui/custom-icons.tsx";
+import {CopyToClipboard} from "@/lib/utils.tsx";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -64,20 +66,26 @@ const Contact = () => {
     {
       icon: Mail,
       title: t('contact.info.email.title'),
-      value: t('contact.info.email.value'),
-      description: t('contact.info.email.description')
+      value: t('email'),
+      href: 'mailto:' + t('email'),
+    },
+    {
+      icon: () => <Whatsapp className="w-7 fill-accent" />,
+      title: t('contact.info.whatsapp.title'),
+      value: t('phone'),
+      href: 'https://wa.me/' + t('phone.plain'),
     },
     {
       icon: Phone,
       title: t('contact.info.phone.title'),
-      value: t('contact.info.phone.value'),
-      description: t('contact.info.phone.description')
+      value: t('phone'),
+      href: 'tel:' + t('phone.plain'),
     },
     {
       icon: MapPin,
       title: t('contact.info.local.title'),
-      value: t('contact.info.local.value'),
-      description: t('contact.info.local.description')
+      value: t('location'),
+      href: 'https://www.google.com/maps/place/' + encodeURIComponent(t('location')),
     }
   ];
 
@@ -120,9 +128,9 @@ const Contact = () => {
                 </span>
               </div>
             ) : <>
-              <h3 className="text-2xl font-bold text-white mb-6">{t('contact.form.title')}</h3>
-              <form onSubmit={handleSubmit} className="space-y-6 h-full overflow-hidden">
-                <div className="grid md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-[26px] md:justify-between md:space-y-0 h-full overflow-hidden">
+                <h3 className="text-2xl font-bold text-white">{t('contact.form.title')}</h3>
+                <div className="grid md:grid-cols-2 gap-[26px]">
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
                       {t('contact.form.name')}
@@ -188,7 +196,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={18}
+                    rows={10}
                     className="bg-white/10 border-white/20 text-white placeholder-blue-200 resize-none"
                     placeholder={t('contact.form.messagePlaceholder')}
                   />
@@ -217,33 +225,32 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 bg-white/10 backdrop-blur-xl p-6 rounded-xl  transition-transform duration-300"
+                  className="flex items-start space-x-4 bg-white/10 backdrop-blur-xl p-6 rounded-xl transition-transform duration-300"
                   data-aos="fade-up"
                   data-aos-delay={600 + index * 100}
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
-                      <info.icon className="h-6 w-6 text-accent" />
-                    </div>
+                  <div className="flex-shrink-0 bg-accent/20 hover:bg-accent/30 rounded-lg">
+                    <a
+                      href={info.href}
+                      onClick={() => CopyToClipboard(info.value)}
+                      target={info.title.toLowerCase().includes('email') ? '_self' : '_blank'}
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 flex items-center justify-center relative"
+                    >
+                      <info.icon className="w-6 text-accent" />
+                    </a>
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">{info.title}</h4>
-                    <div className="text-accent font-medium mb-1">{info.value}</div>
-                    <div className="text-blue-100 text-sm">{info.description}</div>
+                    <h4 className="text-white font-semibold">{info.title}</h4>
+                    <div
+                      className="text-accent font-medium hover:underline cursor-pointer"
+                      onClick={() => CopyToClipboard(info.value)}
+                    >
+                      {info.value}
+                    </div>
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Additional CTA */}
-            <div className="bg-white/10 backdrop-blur-xl p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="900">
-              <h4 className="text-white font-semibold mb-2">{t('contact.emergency.title')}</h4>
-              <p className="text-blue-100 text-sm mb-4">
-                {t('contact.emergency.subtitle')}
-              </p>
-              <Button variant="outline" className="text-accent hover:bg-accent hover:text-white">
-                {t('contact.emergency.schedule')}
-              </Button>
             </div>
           </div>
         </div>

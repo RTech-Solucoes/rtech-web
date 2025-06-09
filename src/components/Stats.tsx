@@ -14,14 +14,8 @@ const Stats = () => {
       description: t('stats.performanceDesc')
     },
     {
-      icon: Users,
-      value: "500+",
-      label: t('stats.clients'),
-      description: t('stats.clientsDesc')
-    },
-    {
       icon: Award,
-      value: "99.2%",
+      value: "100%",
       label: t('stats.success'),
       description: t('stats.successDesc')
     },
@@ -54,7 +48,7 @@ const Stats = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -91,8 +85,8 @@ const Stats = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div data-aos="zoom-out" data-aos-delay={800} className="text-center mt-16">
-          <div className="bg-white/10 backdrop-blur-xl inline-block p-8 rounded-2xl">
+        <div data-aos="zoom-out" data-aos-delay={800} className="text-center mt-16 w-full">
+          <div className="flex flex-col items-center bg-white/10 backdrop-blur-xl inline-block p-8 rounded-2xl w-full md:w-fit mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
               {t('stats.cta.title')}
             </h3>
