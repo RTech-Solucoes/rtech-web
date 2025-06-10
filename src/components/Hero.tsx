@@ -73,8 +73,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div data-aos="fade-left">
-            <Bot/>
+          <div className="h-96 md:absolute md:right-10 md:bottom-80 md:h-64 lg:relative lg:h-full lg:bottom-0" data-aos="fade-left">
+            <Bot />
           </div>
 
           {/*<div className="hidden lg:block relative h-full" data-aos="fade-left">*/}
@@ -85,7 +85,7 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:pt-16 lg:p-0">
           {stats.map((stat, index) => (
             <div
               className="flex flex-col items-center gap-2 bg-gray-50/10 p-5 w-full rounded-full"
@@ -93,7 +93,7 @@ const Hero = () => {
               data-aos-delay={400 + index * 100}
             >
               <div className="w-fit text-4xl font-extrabold text-gradient">{stat.value}</div>
-              <div className="w-fit text-muted-foreground text-sm">{stat.label}</div>
+              <div className="w-fit text-muted-foreground text-sm text-center">{stat.label}</div>
             </div>
           ))}
         </div>

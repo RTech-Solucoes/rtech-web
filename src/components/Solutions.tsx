@@ -84,7 +84,7 @@ const Solutions = () => {
           </div>
         </div>
         <div className="flex flex-col bg-foreground/10 backdrop-blur-xl rounded-3xl w-fit" data-aos="zoom-out">
-          <div className="flex items-center justify-between pt-8 pb-7 mx-8 border-b border-foreground/20 ">
+          <div className="flex items-center justify-between pt-8 pb-7 mx-8 border-b border-foreground/20 gap-6">
             <div className="text-foreground text-2xl font-semibold">{t('solutions_dashboard')}</div>
             <div className="flex space-x-2">
               <div className="w-3 h-3 bg-red-400 rounded-3xl"></div>
@@ -93,10 +93,10 @@ const Solutions = () => {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-24 py-8 px-12 w-fit overflow-hidden">
+          <div className="flex flex-col w-full lg:flex-row gap-24 py-8 px-12 overflow-hidden">
             {companies.map((company, index) =>
               <img
-                className='my-auto w-full max-w-80 max-h-36'
+                className='m-auto w-full max-w-80 max-h-36'
                 data-aos="zoom-in"
                 data-aos-delay={400 + (index * 100)}
                 src={company.src}

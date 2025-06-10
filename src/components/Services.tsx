@@ -43,7 +43,7 @@ const Services = () => {
               key={index}
               href={service.href}
               target="_blank"
-              className="max-w-2xl group relative bg-foreground/10 backdrop-blur-xl p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20"
+              className="w-full md:max-w-2xl group relative bg-foreground/10 backdrop-blur-xl p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20"
               data-aos="zoom-in"
               data-aos-delay={400 + index * 100}
             >

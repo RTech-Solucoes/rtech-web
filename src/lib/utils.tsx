@@ -10,5 +10,5 @@ export function cn(...inputs: ClassValue[]) {
 export const copyToClipboard = (text: string, toast: any, toastTitle: string) => {
 
   navigator.clipboard.writeText(text);
-  toast({ title: toastTitle })
+  toast({ title: toastTitle, duration: 3000 })
 }

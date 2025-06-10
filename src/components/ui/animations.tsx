@@ -14,7 +14,6 @@ export const Bot = ({...props}) => {
   return (
     <Lottie
       options={options}
-      height={600}
       speed={.5}
       {...props}
     />
