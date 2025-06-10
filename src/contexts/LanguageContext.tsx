@@ -29,7 +29,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const globals = {
     instagram_url: "https://www.instagram.com/rtech_solution",
     linkedin_url: "https://www.linkedin.com/company/r-techsolution",
-    chatlog_url: "https://chatlog-seven.vercel.app",
+    chatlog_url: "https://chatlog.rtechsolution.com.br/",
     email: "contato@rtechsolution.com.br",
     phone: "(34) 99681-7814",
     phone_plain: "34996817814",
