@@ -76,12 +76,6 @@ const Hero = () => {
           <div className="h-96 md:absolute md:right-10 md:bottom-80 md:h-64 lg:relative lg:h-full lg:bottom-0" data-aos="fade-left">
             <Bot />
           </div>
-
-          {/*<div className="hidden lg:block relative h-full" data-aos="fade-left">*/}
-          {/*  <div className="absolute -top-6 right-10 w-96 h-72 bg-accent/30 rounded-full blur-xl animate-pulse-slow"></div>*/}
-          {/*  <img alt="Brain" className="absolute animate-float right-10 top-0 w-96" src="brain.png"/>*/}
-          {/*  <img alt="Hand" className="absolute right-10 top-64 w-96" src="hand.png"/>*/}
-          {/*</div>*/}
         </div>
 
         {/* Stats */}

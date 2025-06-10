@@ -15,6 +15,7 @@ export const Bot = ({...props}) => {
     <Lottie
       options={options}
       speed={.5}
+      isClickToPauseDisabled
       {...props}
     />
   )
