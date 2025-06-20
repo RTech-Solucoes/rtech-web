@@ -17,7 +17,7 @@ const Index = () => {
   return (
     <div className="min-h-screen scroll-smooth relative">
       <FAB
-        href={'https://wa.me/' + t('phone_plain')}
+        href={'https://wa.me/' + t('phonePlain')}
         icon={Whatsapp}
       />
       <Header />

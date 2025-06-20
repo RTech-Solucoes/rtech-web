@@ -10,33 +10,33 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: () => <Whatsapp className="h-6 w-6 fill-muted-foreground hover:fill-accent transition-colors"/>,
-      href: 'https://wa.me/' + t('phone_plain'),
+      href: 'https://wa.me/' + t('phonePlain'),
       label: "Whatsapp"
     },
     {
       icon: Instagram,
-      href: t("instagram_url"),
+      href: t("instagramUrl"),
       label: "Instagram"
     },
     {
       icon: Linkedin,
-      href: t("linkedin_url"),
+      href: t("linkedinUrl"),
       label: "LinkedIn"
     },
   ];
 
   const footerLinks = {
     company: [
-      { name: t('footer_aboutUs'), href: '#about' },
-      { name: t('nav_contact'), href: '#contact' }
+      { name: t('footer.aboutUs'), href: '#about' },
+      { name: t('nav.contact'), href: '#contact' }
     ],
     services: [
-      { name: t('footer_aiDevelopment'), href: '#services' },
-      { name: t('footer_dataAnalytics'), href: '#services' },
-      { name: t('footer_consulting'), href: '#services' }
+      { name: t('footer.aiDevelopment'), href: '#services' },
+      { name: t('footer.dataAnalytics'), href: '#services' },
+      { name: t('footer.consulting'), href: '#services' }
     ],
     resources: [
-      { name: t('footer_supportFooter'), href: '#support' }
+      { name: t('footer.supportFooter'), href: '#support' }
     ]
   };
 
@@ -63,7 +63,7 @@ const Footer = () => {
             </div>
 
             <p className="text-muted-foreground leading-relaxed">
-              {t('footer_description')}
+              {t('footer.description')}
             </p>
 
             <div className="space-y-3">
@@ -85,7 +85,7 @@ const Footer = () => {
           {/* Links Sections */}
           <div className="lg:col-span-3 grid md:grid-cols-3 gap-8">
             <div data-aos="fade-up" data-aos-delay="200">
-              <h3 className="text-foreground font-semibold mb-4">{t('footer_company')}</h3>
+              <h3 className="text-foreground font-semibold mb-4">{t('footer.company')}</h3>
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
@@ -101,7 +101,7 @@ const Footer = () => {
             </div>
 
             <div data-aos="fade-up" data-aos-delay="300">
-              <h3 className="text-foreground font-semibold mb-4">{t('nav_services')}</h3>
+              <h3 className="text-foreground font-semibold mb-4">{t('nav.services')}</h3>
               <ul className="space-y-3">
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
@@ -117,7 +117,7 @@ const Footer = () => {
             </div>
 
             <div data-aos="fade-up" data-aos-delay="400">
-              <h3 className="text-foreground font-semibold mb-4">{t('footer_resources')}</h3>
+              <h3 className="text-foreground font-semibold mb-4">{t('footer.resources')}</h3>
               <ul className="space-y-3">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
@@ -138,7 +138,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-foreground/10" data-aos="fade-up" data-aos-delay="500">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-muted-foreground text-sm">
-              {t('footer_copyright')}
+              {t('footer.copyright')}
             </div>
 
             <div className="flex items-center space-x-6">

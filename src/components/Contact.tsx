@@ -67,31 +67,31 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: t('contact_info_email_title'),
+      title: t('contact.info.email.title'),
       value: t('email'),
       href: 'mailto:' + t('email'),
-      copied: t('contact_info_email_copied'),
+      copied: t('contact.info.email.copied'),
     },
     {
       icon: () => <Whatsapp className="w-7 fill-accent" />,
-      title: t('contact_info_whatsapp_title'),
+      title: t('contact.info.whatsapp.title'),
       value: t('phone'),
-      href: 'https://wa.me/' + t('phone_plain'),
-      copied: t('contact_info_whatsapp_copied'),
+      href: 'https://wa.me/' + t('phonePlain'),
+      copied: t('contact.info.whatsapp.copied'),
     },
     {
       icon: Phone,
-      title: t('contact_info_phone_title'),
+      title: t('contact.info.phone.title'),
       value: t('phone'),
-      href: 'tel:' + t('phone_plain'),
-      copied: t('contact_info_phone_copied'),
+      href: 'tel:' + t('phonePlain'),
+      copied: t('contact.info.phone.copied'),
     },
     {
       icon: MapPin,
-      title: t('contact_info_local_title'),
+      title: t('contact.info.local.title'),
       value: t('location'),
       href: 'https://www.google.com/maps/place/' + encodeURIComponent(t('location')),
-      copied: t('contact_info_local_copied'),
+      copied: t('contact.info.local.copied'),
     }
   ];
 
@@ -104,10 +104,10 @@ const Contact = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-            {t('contact_title')} <span className="text-gradient">{t('contact_titleHighlight')}</span> {t('contact_titleEnd')}
+            {t('contact.title')} <span className="text-gradient">{t('contact.titleHighlight')}</span> {t('contact.titleEnd')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('contact_subtitle')}
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -118,13 +118,13 @@ const Contact = () => {
               error ?
                 <div className="text-center my-auto px-24">
                   <TriangleAlert className="h-16 w-16 text-red-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-foreground mb-2">{t('contact_form_error')}</h4>
-                  <p className="text-muted-foreground">{t('contact_form_errorDescription')}</p>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">{t('contact.form.error')}</h4>
+                  <p className="text-muted-foreground">{t('contact.form.errorDescription')}</p>
                 </div> :
                 <div className="text-center my-auto px-24">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-foreground mb-2">{t('contact_form_success')}</h4>
-                  <p className="text-muted-foreground">{t('contact_form_successDescription')}</p>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">{t('contact.form.success')}</h4>
+                  <p className="text-muted-foreground">{t('contact.form.successDescription')}</p>
                 </div>
             ) : loading ? (
               <div className="text-center my-auto">
@@ -135,11 +135,11 @@ const Contact = () => {
               </div>
             ) : <>
               <form onSubmit={handleSubmit} className="flex flex-col space-y-[26px] md:justify-between md:space-y-0 h-full overflow-hidden">
-                <h3 className="text-2xl font-bold text-foreground">{t('contact_form_title')}</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('contact.form.title')}</h3>
                 <div className="grid md:grid-cols-2 gap-[26px]">
                   <div>
                     <label className="block text-foreground text-sm font-medium mb-2">
-                      {t('contact_form_name')}
+                      {t('contact.form.name')}
                     </label>
                     <Input
                       type="text"
@@ -148,12 +148,12 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
-                      placeholder={t('contact_form_namePlaceholder')}
+                      placeholder={t('contact.form.namePlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-foreground text-sm font-medium mb-2">
-                      {t('contact_form_email')}
+                      {t('contact.form.email')}
                     </label>
                     <Input
                       type="email"
@@ -162,12 +162,12 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
-                      placeholder={t('contact_form_emailPlaceholder')}
+                      placeholder={t('contact.form.emailPlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-foreground text-sm font-medium mb-2">
-                      {t('contact_form_company')}
+                      {t('contact.form.company')}
                     </label>
                     <Input
                       type="text"
@@ -175,12 +175,12 @@ const Contact = () => {
                       value={formData.company}
                       onChange={handleChange}
                       className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
-                      placeholder={t('contact_form_companyPlaceholder')}
+                      placeholder={t('contact.form.companyPlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-foreground text-sm font-medium mb-2">
-                      {t('contact_form_phone')}
+                      {t('contact.form.phone')}
                     </label>
                     <Input
                       type="text"
@@ -188,14 +188,14 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground"
-                      placeholder={t('contact_form_phonePlaceholder')}
+                      placeholder={t('contact.form.phonePlaceholder')}
                     />
                   </div>
                 </div>
 
                 <div className="h-fit max-h-full">
                   <label className="block text-foreground text-sm font-medium mb-2">
-                    {t('contact_form_message')}
+                    {t('contact.form.message')}
                   </label>
                   <Textarea
                     name="message"
@@ -204,14 +204,14 @@ const Contact = () => {
                     required
                     rows={10}
                     className="bg-foreground/10 border-foreground/20 text-foreground placeholder-muted-foreground resize-none"
-                    placeholder={t('contact_form_messagePlaceholder')}
+                    placeholder={t('contact.form.messagePlaceholder')}
                   />
                 </div>
                 <Button
                   type="submit"
                   className="w-full bg-accent hover:bg-accent/90 text-foreground font-semibold py-3 rounded-3xl transition-all duration-300 group"
                 >
-                  {t('contact_form_send')}
+                  {t('contact.form.send')}
                   <SendHorizontal className="h-5 w-5" />
                 </Button>
               </form>
@@ -221,9 +221,9 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8" data-aos="fade-left" data-aos-delay="400">
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-6">{t('contact_info_title')}</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">{t('contact.info.title')}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                {t('contact_info_subtitle')}
+                {t('contact.info.subtitle')}
               </p>
             </div>
 

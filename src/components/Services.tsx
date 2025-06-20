@@ -9,19 +9,19 @@ const Services = () => {
   const services = [
     {
       icon: () => <Chatlog className="h-8 w-8 fill-accent" /> ,
-      title: t('services_cl_title'),
-      description: t('services_cl_description'),
-      href: t('chatlog_url')
+      title: t('services.cl.title'),
+      description: t('services.cl.description'),
+      href: t('chatlogUrl')
     },
     {
       icon: MonitorUp,
-      title: t('services_db_title'),
-      description: t('services_db_description')
+      title: t('services.db.title'),
+      description: t('services.db.description')
     },
     {
       icon: Waypoints,
-      title: t('services_in_title'),
-      description: t('services_in_description')
+      title: t('services.in.title'),
+      description: t('services.in.description')
     }
   ];
 
@@ -30,10 +30,10 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-            {t('services_title')} <span className="text-gradient">{t('services_titleHighlight')}</span>
+            {t('services.title')} <span className="text-gradient">{t('services.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('services_subtitle')}
+            {t('services.subtitle')}
           </p>
         </div>
 

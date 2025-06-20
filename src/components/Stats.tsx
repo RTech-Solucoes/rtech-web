@@ -10,20 +10,20 @@ const Stats = () => {
     {
       icon: TrendingUp,
       value: "+150%",
-      label: t('stats_performance'),
-      description: t('stats_performanceDesc')
+      label: t('stats.performance'),
+      description: t('stats.performanceDesc')
     },
     {
       icon: Award,
       value: "100%",
-      label: t('stats_success'),
-      description: t('stats_successDesc')
+      label: t('stats.success'),
+      description: t('stats.successDesc')
     },
     {
       icon: Clock,
       value: "24/7",
-      label: t('stats_supportTitle'),
-      description: t('stats_supportDesc')
+      label: t('stats.supportTitle'),
+      description: t('stats.supportDesc')
     }
   ];
 
@@ -41,10 +41,10 @@ const Stats = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-            {t('stats_title')} <span className="text-gradient">{t('stats_titleHighlight')}</span>
+            {t('stats.title')} <span className="text-gradient">{t('stats.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('stats_subtitle')}
+            {t('stats.subtitle')}
           </p>
         </div>
 
@@ -88,13 +88,13 @@ const Stats = () => {
         <div data-aos="zoom-out" data-aos-delay={800} className="text-center mt-16 w-full">
           <div className="flex flex-col items-center bg-foreground/10 backdrop-blur-xl inline-block p-8 rounded-3xl w-full md:w-fit mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              {t('stats_cta_title')}
+              {t('stats.cta.title')}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              {t('stats_cta_subtitle')}
+              {t('stats.cta.subtitle')}
             </p>
             <a href="#contact" className="bg-accent hover:bg-accent/90 text-foreground font-semibold px-8 py-3 rounded-3xl transition-all duration-300 ">
-              {t('stats_cta_button')}
+              {t('stats.cta.button')}
             </a>
           </div>
         </div>

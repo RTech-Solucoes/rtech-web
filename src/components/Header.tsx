@@ -10,11 +10,11 @@ const Header = () => {
   const { t } = useLanguage();
 
   const navigation = [
-    { name: t('nav_home'), href: '#home' },
-    { name: t('nav_services'), href: '#services' },
-    { name: t('nav_solutions'), href: '#solutions' },
-    { name: t('nav_about'), href: '#about' },
-    { name: t('nav_contact'), href: '#contact' }
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.solutions'), href: '#solutions' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.contact'), href: '#contact' }
   ];
 
   return (
@@ -47,7 +47,7 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-4">
               <LanguageSelector />
               <a href="#contact" className="bg-accent hover:bg-accent/90 text-foreground font-semibold px-6 py-2 rounded-full transition-all duration-300 ">
-                {t('nav_getStarted')}
+                {t('nav.getStarted')}
               </a>
             </div>
 
@@ -81,7 +81,7 @@ const Header = () => {
             <div className="px-3 py-2 flex items-center justify-between">
               <LanguageSelector />
               <Button className="bg-accent hover:bg-accent/90 text-foreground font-semibold rounded-full">
-                {t('nav_getStarted')}
+                {t('nav.getStarted')}
               </Button>
             </div>
           </div>

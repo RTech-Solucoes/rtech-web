@@ -10,19 +10,19 @@ const Hero = () => {
   const stats = [
     {
       value: "+150%",
-      label: t('hero_performance'),
+      label: t('hero.performance'),
     },
     {
       value: "+100",
-      label: t('hero_projects'),
+      label: t('hero.projects'),
     },
     {
       value: "98%",
-      label: t('hero_satisfaction'),
+      label: t('hero.satisfaction'),
     },
     {
       value: "24/7",
-      label: t('hero_support'),
+      label: t('hero.support'),
     },
   ];
 
@@ -42,15 +42,15 @@ const Hero = () => {
                 data-aos-delay={400}
                 className="text-5xl lg:text-7xl font-bold text-foreground leading-tight"
               >
-                {t('hero_title')}
-                <span className="text-gradient block">{t('hero_titleHighlight')}</span>
+                {t('hero.title')}
+                <span className="text-gradient block">{t('hero.titleHighlight')}</span>
               </h1>
               <p
                 data-aos="fade-right"
                 data-aos-delay={300}
                 className="text-xl text-muted-foreground max-w-lg"
               >
-                {t('hero_subtitle')}
+                {t('hero.subtitle')}
               </p>
             </div>
 
@@ -60,7 +60,7 @@ const Hero = () => {
                 data-aos="fade-right"
                 data-aos-delay={200}
               >
-                <a href="#contact">{t('hero_startJourney')}</a>
+                <a href="#contact">{t('hero.startJourney')}</a>
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -68,12 +68,15 @@ const Hero = () => {
                 className="border-accent text-foreground hover:text-foreground hover:bg-accent/20 px-8 py-4 rounded-full text-lg transition-all duration-300"
                 data-aos="fade-right"
               >
-                <a href="#services">{t('hero_learnMore')}</a>
+                <a href="#services">{t('hero.learnMore')}</a>
               </Button>
             </div>
           </div>
 
-          <div className="h-96 md:absolute md:right-10 md:bottom-80 md:h-64 lg:relative lg:h-full lg:bottom-0" data-aos="fade-left">
+          <div
+            className="h-96 min-h-[600px] md:absolute md:right-10 md:bottom-80 md:min-h-px md:max-h-64 lg:max-h-none lg:relative lg:h-full lg:bottom-0"
+            data-aos="fade-left"
+          >
             <Bot />
           </div>
         </div>

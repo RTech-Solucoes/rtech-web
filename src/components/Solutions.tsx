@@ -9,18 +9,18 @@ const Solutions = () => {
   const solutions = [
     {
       icon: Monitor,
-      title: t('solutions_development_title'),
-      description: t('solutions_development_description')
+      title: t('solutions.development.title'),
+      description: t('solutions.development.description')
     },
     {
       icon: MessageSquare,
-      title: t('solutions_chatbot_title'),
-      description: t('solutions_chatbot_description')
+      title: t('solutions.chatbot.title'),
+      description: t('solutions.chatbot.description')
     },
     {
       icon: BarChart3,
-      title: t('solutions_business_title'),
-      description: t('solutions_business_description')
+      title: t('solutions.business.title'),
+      description: t('solutions.business.description')
     },
   ];
 
@@ -49,11 +49,11 @@ const Solutions = () => {
           <div className="space-y-8">
             <div data-aos="fade-right">
               <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                {t('solutions_title')}
-                <span className="text-gradient block">{t('solutions_titleHighlight')}</span>
+                {t('solutions.title')}
+                <span className="text-gradient block">{t('solutions.titleHighlight')}</span>
               </h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                {t('solutions_subtitle')}
+                {t('solutions.subtitle')}
               </p>
             </div>
 
@@ -85,7 +85,7 @@ const Solutions = () => {
         </div>
         <div className="flex flex-col bg-foreground/10 backdrop-blur-xl rounded-3xl w-fit" data-aos="zoom-out">
           <div className="flex items-center justify-between pt-8 pb-7 mx-8 border-b border-foreground/20 gap-6">
-            <div className="text-foreground text-2xl font-semibold">{t('solutions_dashboard')}</div>
+            <div className="text-foreground text-2xl font-semibold">{t('solutions.dashboard')}</div>
             <div className="flex space-x-2">
               <div className="w-3 h-3 bg-red-400 rounded-3xl"></div>
               <div className="w-3 h-3 bg-yellow-400 rounded-3xl"></div>
