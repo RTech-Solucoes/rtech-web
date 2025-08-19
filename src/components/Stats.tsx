@@ -28,16 +28,7 @@ const Stats = () => {
   ];
 
   return (
-    <section id="about" className="pb-20 pt-32 bg-primary relative overflow-hidden">
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="grid grid-cols-8 gap-4 h-full">
-          {Array.from({ length: 64 }).map((_, i) => (
-            <div key={i} className="border border-accent/20"></div>
-          ))}
-        </div>
-      </div>
-      
+    <section id="about" className="pb-20 pt-32 bg-primary relative overflow-hidden">      
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
