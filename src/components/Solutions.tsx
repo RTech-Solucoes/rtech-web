@@ -37,6 +37,10 @@ const Solutions = () => {
       name: "DMAE",
       src: "dmae.png"
     },
+    {
+      name: "Way 262",
+      src: "way262.png"
+    }
   ]
 
   return (
