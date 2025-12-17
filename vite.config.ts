@@ -10,6 +10,14 @@ export default defineConfig(({ mode }) => {
       host: "::",
       port: 8080,
     },
+    preview: {
+      host: true,
+      port: 8080,
+      allowedHosts: [
+        "rtechsolution.com.br",
+        "www.rtechsolution.com.br",
+      ],
+    },
     plugins: [
       react(),
     ].filter(Boolean),
