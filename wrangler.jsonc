@@ -1,0 +1,16 @@
+{
+  "name": "rtech-site-institucional",
+  "account_id": "3ca9471dadca9766b3dc5de098577052",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-08-03",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "rtechsolution.com.br/*", "zone_name": "rtechsolution.com.br" }
+  ]
+}
